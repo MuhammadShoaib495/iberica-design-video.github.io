@@ -4,48 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-html, body {
+body {
   margin: 0;
   padding: 0;
   background: transparent;
-  height: 100%;
-  overflow: hidden;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
 }
 video {
-  width: 100%;
+  flex: 1 1 33%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none; /* Hide by default */
-}
-video.active {
-  display: block;
 }
 </style>
 </head>
 <body>
-<video id="vid1" class="active" autoplay muted loop playsinline preload="auto">
-  <source src="stainless-steel.webm" type="video/webm">
-</video>
-
-<video id="vid2" autoplay muted loop playsinline preload="auto">
-  <source src="marble-3d.webm" type="video/webm">
-</video>
-
-<video id="vid3" autoplay muted loop playsinline preload="auto">
-  <source src="wood-video.webm" type="video/webm">
-</video>
-
-<script>
-let videos = document.querySelectorAll("video");
-let index = 0;
-setInterval(() => {
-  videos[index].classList.remove("active");
-  index = (index + 1) % videos.length;
-  videos[index].classList.add("active");
-}, 5000); // Switch every 5 seconds
-</script>
+<div class="container">
+  <video autoplay muted loop playsinline preload="auto">
+    <source src="stainless-steel.webm" type="video/webm">
+  </video>
+  <video autoplay muted loop playsinline preload="auto">
+    <source src="marble-3d.webm" type="video/webm">
+  </video>
+  <video autoplay muted loop playsinline preload="auto">
+    <source src="wood-video.webm" type="video/webm">
+  </video>
+</div>
 </body>
 </html>
